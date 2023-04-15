@@ -1,0 +1,158 @@
+
+*,
+:after,
+:before {
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    box-sizing:border-box
+}
+
+html{
+    font-size:10px;
+    font-family:sans-serif;
+    -webkit-tap-highlight-color:transparent;
+    -ms-text-size-adjust:100%;
+    -webkit-text-size-adjust:100%
+}
+
+body{
+    font-family:Segoe UI,Segoe WP,Tahoma,Arial,sans-serif;
+    font-size:14px;
+    line-height:1.42857143;
+    color:#333;
+    background-color:#fff;
+    background-image: url("../img/bg.jpeg");
+    background-repeat: repeat;
+    background-size: cover;
+    margin:0
+}
+
+body,
+html {
+    height:100%;
+    min-width:320px
+}
+
+.form {
+    background-color: transparent;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.form-header-hidden {
+    background-image: url("../img/bg.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 120px;
+    width: 100%;
+}
+
+.form-header {
+    background-color: #954911;
+    color: #ffffff;
+    height: fit-content;
+    padding: 12px 14px;
+}
+
+.form-header p {
+    text-align: justify;
+}
+
+.form-body {
+    background-color: #ffffff;
+    opacity: 0.8;
+}
+
+.form-footer {
+    background-color: #d2d2d2;
+    height: fit-content;
+    padding: 12px 14px;
+}
+
+.form-footer h4 {
+    margin-top: 0;
+    font-weight: 100;
+    font-size: 10px;
+}
+    
+form {
+    background-color: transparent;
+    border-radius: 0;
+    margin: 0 auto;
+    max-width: 100%;
+    padding: 20px 14px;
+    overflow: hidden;
+}
+
+input[type="text"],
+textarea,
+select {
+    border: 2px solid #ebebeb;
+    border-radius: 4px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    padding: 10px;
+    width: 100%;
+}
+
+input[type="text"]:focus,
+textarea:focus {
+    background-color: #ffffff;
+    border-bottom: #8F327E 1px solid;
+    border: none;
+}    
+
+label {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+input[type="checkbox"] {
+    display: inline-block;
+}
+
+button {
+    background-color: #954911;
+    border: none;
+    border-radius: 4px;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 10px 20px;
+    margin-top: 10px;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #8F327E;
+}
+
+
+@media screen and (min-width: 768px) {
+    .form {
+        background-color: transparent;
+        width: 50%;
+        margin: 60px auto;
+    }
+
+    .form-header-hidden {
+        display: none;
+    }
+
+    .form-header {
+        padding: 20px 60px;
+    }
+
+    .form-footer {
+        padding-inline: 60px;
+    }
+    
+    form {
+        padding: 20px 60px;
+    }
+    
+    button {
+        width: fit-content;
+    }
+}

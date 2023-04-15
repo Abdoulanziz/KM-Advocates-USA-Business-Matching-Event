@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <title>Get US Investment — Form</title>
+</head>
+<body>
+    <div class="form">
+        <div class="form-header-hidden"></div>
+        <div class="form-header">
+            <h2 class="form-title">Get US Investment — Form</h2>
+            <p>
+                KM Advocates & Associates a Ugandan Investment Law firm working with the Uganda Investment Authority and the US National Black Chamber of Commerce in Atlanta Georgia is organising a business matching mission that will facilitate US black businesses interested in investing in Uganda's different sectors to easily identify local partners or firms they can invest through.
+            </p>
+            <p>
+                The business matching shall happen in the wake of Uganda for US Black businesses an event that on the 17th and 18th day of October,  2023 will show case to more than 1,000 US black businesses the different investment opportunities in Uganda.
+            </p>
+            <p>
+                Only local Corporations that are compliant with URSB, URA , in possession of all the required business permits or licences and in possession of books of Accounts shall participate in the business matching.
+            </p>
+            <p>
+                Interested and legible local Companies can fill this online form in order to participate in the business matching event.
+            </p>
+        </div>
+        <div class="form-body">
+            <form enctype="multipart/form-data">
+                <div class="form-control">
+                    <label for="name">1. Provide the Name of your Company </label>
+                    <input type="text" id="company_name" name="companyName" required>
+                </div>
+
+                <div class="form-control">
+                    <label for="name">2. State the business Sector your Company is involved  </label>
+                    <input type="text" id="business_sector" name="businessSector" required>
+                </div>
+
+                <div class="form-control">
+                    <label for="name">3. Clearly state the specific products dealt in or offered by your Company  </label>
+                    <textarea id="specific_product" name="specificProduct" cols="30" rows="3" required></textarea>
+                </div>
+
+                <div class="form-control">
+                    <label for="name">4. State the period of time your Company has been in operation </label>
+                    <input type="text" id="period_of_operation" name="periodOfOperation" required>
+                </div>
+                
+                <div class="form-control">
+                    <label for="checkbox">5. Do you agree sharing information or responses you have provided in 1, 2 and 3 to investors interested in investing in Uganda through your Company?</label>
+                    <input type="checkbox" id="data_share_consent" name="dataShareConsent" required>
+                </div>
+
+                <div class="form-control">
+                    <button type="submit">Submit</button>
+                </div>
+            </form>
+        </div>
+        <div class="form-footer">
+            <h4 class="form-footer-title">The data collected through this form will only be used for participation in the Business Matching event.</h4>
+        </div>
+    </div>
+  <script>
+    const form = document.querySelector("form");
+    form.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        let formData = new FormData(form);
+
+        const apiEndpoint = "http://localhost:8000/api/create/data";
+        const options = {
+            method: "POST",
+            body: formData
+        };
+
+        const response = await fetch(apiEndpoint, options);
+        if(response){
+            if(response.status === 201){
+                const data = await response.json();
+                const newFormData = new FormData();
+
+                form.querySelectorAll('input, textarea, select').forEach(el => {
+                if (el.type === 'checkbox') {
+                    el.checked = false;
+                } else {
+                    el.value = '';
+                }
+                newFormData.append(el.name, el.value);
+                });
+
+                formData = newFormData;
+
+            }else{
+                
+            }
+        }
+
+    });
+  </script>
+</body>
+</html>
