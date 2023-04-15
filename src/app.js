@@ -4,8 +4,6 @@ const ejs = require('ejs');
 const cors = require("cors");
 const mongoose = require("mongoose");
 const session = require("express-session");
-const multer = require("multer");
-const upload = multer();
 const path = require("path");
 const MongoStore = require("connect-mongo");
 
@@ -47,13 +45,5 @@ app.use(
   })
 );
 
-
-app.get('/', (req, res) => {
-    res.render('index');
-});
-
-app.post('/api/create/data', upload.none(), (req, res) => {
-    console.log("success", req.body);
-    res.status(201).send(req.body);
-});
+app.use("/", require("../routes/pageRoutes"));
 
