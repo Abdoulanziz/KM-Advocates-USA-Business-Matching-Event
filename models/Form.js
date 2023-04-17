@@ -8,6 +8,10 @@ const formSchema = new Schema(
       type: String,
       required: [true, "company name"],
     },
+    companyWebsite: {
+      type: String,
+      required: [false, "company website"],
+    },
     businessSector: {
       type: String,
       required: [true, "business sector"],
@@ -15,14 +19,26 @@ const formSchema = new Schema(
     specificProduct: {
         type: String,
         required: [true, "specific product"],
-      },
+    },
+    contactPersonName: {
+      type: String,
+      required: [true, "contact person name"],
+    },
+    contactPersonPhone: {
+      type: String,
+      required: [true, "contact person phone"],
+    },
+    contactPersonEmail: {
+      type: String,
+      required: [true, "contact person email"],
+    },
     periodOfOperation: {
       type: String,
       required: [true, "period of operation"],
     },
     dataShareConsent: {
         type: String,
-        required: [true, "data share consent"],
+        required: [false, "data share consent"],
     },
   },
   { timestamps: true }

@@ -40,10 +40,10 @@ html {
 }
 
 .form-header-hidden {
-    background-image: url("../img/bg.jpeg");
+    background-image: url("../img/bg-top.jpeg");
     background-repeat: no-repeat;
     background-size: cover;
-    height: 120px;
+    height: 160px;
     width: 100%;
 }
 
