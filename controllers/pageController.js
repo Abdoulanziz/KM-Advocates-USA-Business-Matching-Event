@@ -4,6 +4,10 @@ const renderIndex = (req, res) => {
     res.render("index");
 };
 
+const renderHome = (req, res) => {
+    res.render("home");
+};
+
 const handleFormSubmission = async (req, res) => {
     const form = new Form(req.body);
     try {
@@ -14,4 +18,4 @@ const handleFormSubmission = async (req, res) => {
     }
 };
 
-module.exports = { renderIndex, handleFormSubmission };
+module.exports = { renderIndex, renderHome, handleFormSubmission };
