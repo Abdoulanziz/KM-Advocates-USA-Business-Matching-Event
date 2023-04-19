@@ -5,27 +5,6 @@
     font-size: 18px;
   }
 
-  .accordion > .content {
-    padding: 5.6px 34.1333px;
-    margin: 0;
-  }
-
-  .accordion .title {
-    padding: 0.4em 4vw;
-    height: 110px !important;
-  }
-
-  .accordion > .title > h3 {
-    margin-inline-start: 0;
-  }
-
-  .accordion > .content > ol > li > a  > h4{
-    font-size: 1rem;
-    font-weight: 300;
-    padding: 0;
-  }
-
-
   .accordion {
     position: relative;
     margin-block-end: 0.08em;
@@ -35,5 +14,32 @@
     margin-block-start: 1.8em;
     inline-size: 100%;
   }
+
+
+  .accordion .title {
+    padding: 0.4em 4vw;
+    height: 110px !important;
+    /* Special */
+    padding-inline: 14px !important;
+  }
+
+  .accordion > .title > h3 {
+    margin-inline-start: 0;
+  }
+
+  .accordion > .content {
+    padding: 5.6px 34.1333px;
+    margin: 0;
+    /* Special */
+    padding-inline: 14px !important;
+  }
+
+  .accordion > .content > .wrapper > ul{
+    margin: 0;
+    padding-inline: 14.1333px;
+  }
+
+
+
 
 }
