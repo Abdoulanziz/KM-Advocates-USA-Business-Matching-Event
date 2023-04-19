@@ -152,9 +152,9 @@ button:hover {
 
 .accordion > .content > ul > li,
 .accordion > .content > ol > li {
-  background-color: #dedcdc;
+  /* background-color: #dedcdc; */
   margin: 0.08em 0;
-  padding: 0.8em 4vw;
+  padding: 0.2em 0;
 }
 
 .accordion > .content > ul > li:last-child,
