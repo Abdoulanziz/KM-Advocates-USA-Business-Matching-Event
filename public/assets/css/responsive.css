@@ -20,18 +20,18 @@
     padding: 0.4em 4vw;
     height: 110px !important;
     /* Special */
-    padding-inline: 14px !important;
+    padding-inline: 48px !important;
   }
 
   .accordion > .title > h3 {
     margin-inline-start: 0;
   }
 
-  .accordion > .content > {
+  .accordion > .content > .wrapper {
     padding: 5.6px 34.1333px;
     margin: 0;
     /* Special */
-    padding-inline: 14px !important;
+    padding-inline: 34px;
   }
 
   .accordion > .content > .wrapper > ul{
