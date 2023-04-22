@@ -12,6 +12,14 @@
     width: 100%;
 }
 
+.form-header-hidden.info {
+    background-image: url("../img/us-ug.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 160px;
+    width: 100%;
+}
+
 .form-header {
     background-color: #954911;
     color: #ffffff;
