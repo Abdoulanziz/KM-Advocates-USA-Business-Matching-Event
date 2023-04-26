@@ -4,8 +4,8 @@ const renderIndex = (req, res) => {
     res.render("index");
 };
 
-const renderHome = (req, res) => {
-    res.render("home");
+const renderRegister = (req, res) => {
+    res.render("register");
 };
 
 const handleFormSubmission = async (req, res) => {
@@ -18,4 +18,4 @@ const handleFormSubmission = async (req, res) => {
     }
 };
 
-module.exports = { renderIndex, renderHome, handleFormSubmission };
+module.exports = { renderIndex, renderRegister, handleFormSubmission };
