@@ -99,6 +99,30 @@ button:hover {
   background-color: #8F327E;
 }
 
+.countdown {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--brand-font-default);
+  font-size: 18px;
+  background-color: #ecd016;
+  color: #070707;
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 13px;
+  box-shadow: 0 0 10px #ecd016;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 10px #ecd016;
+  }
+  to {
+    box-shadow: 0 0 20px #ecd016;
+  }
+}
+
 .accordions {
   width: 100%;
   padding:24px 20px;
@@ -180,6 +204,18 @@ button:hover {
 .accordion > .content > .wrapper > ul{
   margin: 0;
   padding: 0;
+}
+
+.accordion > .content > .wrapper > .org {
+  inline-size: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-items: center;
+}
+
+.accordion > .content > .wrapper > .org > img {
+  inline-size: 80px;
+  block-size: 80px;
 }
 
 .accordion > .content > .wrapper > ul > li{

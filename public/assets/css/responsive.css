@@ -5,6 +5,30 @@
     font-size: 18px;
   }
 
+  .countdown {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--brand-font-default);
+    font-size: 24px;
+    background-color: #ecd016;
+    color: #070707;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 13px;
+    box-shadow: 0 0 10px #ecd016;
+    animation: glow 1s ease-in-out infinite alternate;
+  }
+  
+  @keyframes glow {
+    from {
+      box-shadow: 0 0 10px #ecd016;
+    }
+    to {
+      box-shadow: 0 0 20px #ecd016;
+    }
+  }
+
   .accordion {
     position: relative;
     margin-block-end: 0.08em;
@@ -39,7 +63,17 @@
     padding-inline: 14.1333px;
   }
 
-
+  .accordion > .content > .wrapper > .org {
+    inline-size: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
+  }
+  
+  .accordion > .content > .wrapper > .org > img {
+    inline-size: 90px;
+    block-size: 90px;
+  }
 
 
 }
