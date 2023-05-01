@@ -105,21 +105,21 @@ button:hover {
   align-items: center;
   font-family: var(--brand-font-default);
   font-size: 18px;
-  background-color: #ecd016;
-  color: #070707;
+  background-color: var(--brand-cloud-bg-color-grey);
+  color: var(--brand-color-primary);
   font-weight: bold;
   padding: 10px;
   border-radius: 13px;
-  box-shadow: 0 0 10px #ecd016;
-  animation: glow 1s ease-in-out infinite alternate;
+  /* box-shadow: 0 0 10px var(--brand-cloud-bg-color-grey); */
+  /* animation: glow 1s ease-in-out infinite alternate; */
 }
 
 @keyframes glow {
   from {
-    box-shadow: 0 0 10px #ecd016;
+    box-shadow: 0 0 10px var(--brand-cloud-bg-color-grey);
   }
   to {
-    box-shadow: 0 0 20px #ecd016;
+    box-shadow: 0 0 20px var(--brand-cloud-bg-color-grey);
   }
 }
 
@@ -216,6 +216,9 @@ button:hover {
 .accordion > .content > .wrapper > .org > img {
   inline-size: 80px;
   block-size: 80px;
+  border: 2px solid var(--brand-color-primary);
+  border-radius: 100%;
+  padding: 2px;
 }
 
 .accordion > .content > .wrapper > ul > li{
@@ -227,4 +230,32 @@ button:hover {
   border-bottom-left-radius: 13px;
   border-bottom-right-radius: 13px;
 }
+
+.sponsorship-packages {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.package {
+  background-color: transparent;
+  text-align: center;
+  border-radius: 5px;
+  padding: 4px;
+}
+
+.package img {
+  inline-size: 80%;
+  block-size: 80%;
+  border: 2px solid var(--brand-color-primary);
+  border-radius: 100%;
+  padding: 2px;
+}
+
+.package p {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-top: 4px;
+}
+
 
