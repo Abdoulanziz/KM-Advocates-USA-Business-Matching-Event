@@ -12,7 +12,7 @@
     font-family: var(--brand-font-default);
     font-size: 24px;
     background-color: var(--brand-cloud-bg-color-grey);
-    color: var(--brand-color-primary);
+    color: #000;
     font-weight: bold;
     padding: 10px;
     border-radius: 13px;
