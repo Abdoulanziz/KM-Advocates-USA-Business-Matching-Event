@@ -33,7 +33,7 @@ const handleFormSubmission = async (req, res) => {
         // Email message config
         const mailOptions = {
             from: EMAIL_ADDRESS,
-            to: "abdoulanzizally@outlook.com",
+            to: "abdoulanzizally@outlook.com, kikomeko@hotmail.com",
             subject: "Business Match Maker — Form",
             html: `
               <h2>Business Match Maker — Form Submission</h2>
