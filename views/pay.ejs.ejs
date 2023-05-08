@@ -57,8 +57,8 @@
                 <div class="form-control">
                     <label for="name">5. Please provide name, phone number and email address of the contact person </label>
                     <input style="margin-block: 3px;" type="text" id="contact_person_name" name="contactPersonName" required>
-                    <input style="margin-block: 3px;" type="number" id="contact_person_phone" name="contactPersonPhone" required>
-                    <input style="margin-block-start: 3px;" type="email" id="contact_person_email" name="contactPersonEmail" required>
+                    <input style="margin-block: 3px;" type="text" id="contact_person_phone" name="contactPersonPhone" required>
+                    <input style="margin-block-start: 3px;" type="text" id="contact_person_email" name="contactPersonEmail" required>
                 </div>                
 
                 <div class="form-control">
@@ -72,7 +72,7 @@
                 </div>
 
                 <div class="form-control">
-                    <button type="submit" id="goToFlutter">Submit & Proceed to Pay</button>
+                    <button type="submit">Submit</button>
                 </div>
             </form>
         </div>
@@ -95,6 +95,20 @@
         const response = await fetch(apiEndpoint, options);
         if(response){
             if(response.status === 201){
+                const data = await response.json();
+                const newFormData = new FormData();
+
+                form.querySelectorAll('input, textarea, select').forEach(el => {
+                if (el.type === 'checkbox') {
+                    el.checked = false;
+                } else {
+                    el.value = '';
+                }
+                newFormData.append(el.name, el.value);
+                });
+
+                formData = newFormData;
+
                 const modalDiv = document.createElement("div");
                 const modalTemplate = `
                 <div class="modal-overlay">
@@ -105,50 +119,14 @@
                 </div>
                 `;
                 modalDiv.innerHTML = modalTemplate;
+                document.body.append(modalDiv);
 
-                // Payment
-                try {
-                    const contactPersonName = form.querySelector("#contact_person_name").value;
-                    const contactPersonPhone = form.querySelector("#contact_person_phone").value;
-                    const contactPersonEmail = form.querySelector("#contact_person_email").value;
+                setTimeout(() => {
+                    modalDiv.innerHTML = "";
+                    document.body.append(modalDiv);
+                    window.location.href = "/";
+                }, 3000);
 
-                    let res = await fetch("http://localhost:8000/api/make/payment", {
-                        method: "POST",
-                        credentials: "same-origin",
-                        headers: {
-                        "Content-Type": "application/json",
-                        },
-                        body: JSON.stringify({contactPersonName, contactPersonPhone, contactPersonEmail}),
-                    });
-
-                    const data = await res.json();
-                    if (res && res.ok) {
-                        if (res.status === 201) {
-                            // Clear the form
-                            const newFormData = new FormData();
-                            form.querySelectorAll('input, textarea, select').forEach(el => {
-                                if (el.type === 'checkbox') {
-                                    el.checked = false;
-                                } else {
-                                    el.value = '';
-                                }
-                                newFormData.append(el.name, el.value);
-                            });
-                            formData = newFormData;
-
-                            // Display confirmation modal
-                            document.body.append(modalDiv);
-
-                            // Redirect to payment page
-                            document.location.href = data.redirect_url;
-                        }
-                    } else {
-                        // TODO: Show error 
-                    }
-                } catch (err) {
-                    // TODO: Show error 
-                    console.error(err);
-                }
             }else{
                 
             }

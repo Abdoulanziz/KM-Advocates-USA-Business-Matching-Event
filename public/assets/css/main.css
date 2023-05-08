@@ -56,6 +56,8 @@ form {
 }
 
 input[type="text"],
+input[type="number"],
+input[type="email"],
 textarea,
 select {
   border: 2px solid #ebebeb;
@@ -67,6 +69,8 @@ select {
 }
 
 input[type="text"]:focus,
+input[type="number"]:focus,
+input[type="email"]:focus,
 textarea:focus {
   background-color: #ffffff;
   border-bottom: #8F327E 1px solid;
