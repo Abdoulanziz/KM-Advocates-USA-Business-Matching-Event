@@ -34,17 +34,48 @@ const handleFormSubmission = async (req, res) => {
             to: "abdoulanzizally@outlook.com",
             subject: "Business Match Maker — Form",
             html: `
-            <p>Company name: ${req.body.companyName}</p>
-            <p>Website: ${req.body.companyWebsite}</p>
-            <p>Business sector: ${req.body.businessSector}</p>
-            <p>Specific product: ${req.body.specificProduct}</p>
-            <p>Contact person's name: ${req.body.contactPersonName}</p>
-            <p>Contact person's Phone: ${req.body.contactPersonPhone}</p>
-            <p>Contact person's Email: ${req.body.contactPersonEmail}</p>
-            <p>Period of operation: ${req.body.periodOfOperation}</p>
-            <p>Agree to share data: ${req.body.dataShareConsent ? "Yes" : "No"}</p>
+              <h2>Business Match Maker — Form Submission</h2>
+              <table>
+                <tr>
+                  <td><strong>Company name:</strong></td>
+                  <td>${req.body.companyName}</td>
+                </tr>
+                <tr>
+                  <td><strong>Website:</strong></td>
+                  <td>${req.body.companyWebsite}</td>
+                </tr>
+                <tr>
+                  <td><strong>Business sector:</strong></td>
+                  <td>${req.body.businessSector}</td>
+                </tr>
+                <tr>
+                  <td><strong>Specific product:</strong></td>
+                  <td>${req.body.specificProduct}</td>
+                </tr>
+                <tr>
+                  <td><strong>Contact person's name:</strong></td>
+                  <td>${req.body.contactPersonName}</td>
+                </tr>
+                <tr>
+                  <td><strong>Contact person's phone:</strong></td>
+                  <td>${req.body.contactPersonPhone}</td>
+                </tr>
+                <tr>
+                  <td><strong>Contact person's email:</strong></td>
+                  <td>${req.body.contactPersonEmail}</td>
+                </tr>
+                <tr>
+                  <td><strong>Period of operation:</strong></td>
+                  <td>${req.body.periodOfOperation}</td>
+                </tr>
+                <tr>
+                  <td><strong>Agree to share data:</strong></td>
+                  <td>${req.body.dataShareConsent ? "Yes" : "No"}</td>
+                </tr>
+              </table>
             `
         }
+          
 
         // Send the email
         transporter.sendMail(mailOptions, (error, info) => {

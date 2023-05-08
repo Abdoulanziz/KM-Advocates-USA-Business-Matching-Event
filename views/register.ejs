@@ -109,6 +109,24 @@
 
                 formData = newFormData;
 
+                const modalDiv = document.createElement("div");
+                const modalTemplate = `
+                <div class="modal-overlay">
+                    <div class="modal">
+                        <h2>Form Submission</h2>
+                        <img src="./assets/img/check.png" alt="check mark">
+                    </div>
+                </div>
+                `;
+                modalDiv.innerHTML = modalTemplate;
+                document.body.append(modalDiv);
+
+                setTimeout(() => {
+                    modalDiv.innerHTML = "";
+                    document.body.append(modalDiv);
+                    window.location.href = "/";
+                }, 3000);
+
             }else{
                 
             }
