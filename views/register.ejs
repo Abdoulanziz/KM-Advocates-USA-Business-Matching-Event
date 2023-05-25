@@ -9,7 +9,7 @@
         <link rel="stylesheet" href="./assets/css/main.css" />
         <link rel="stylesheet" href="./assets/css/responsive.css" />
         <link rel="stylesheet" href="/assets/css/styles.css">
-        <title>Get US Investment — Form</title>
+        <title>Business Match Maker — Form</title>
     </head>
 <body>
     <div class="form">
@@ -72,7 +72,7 @@
                 </div>
 
                 <div class="form-control">
-                    <button type="submit" id="goToFlutter">Submit & Proceed to Pay</button>
+                    <button type="submit" id="goToFlutter">Submit</button>
                 </div>
             </form>
         </div>
@@ -86,7 +86,7 @@
         event.preventDefault();
         let formData = new FormData(form);
 
-        const apiEndpoint = "http://localhost:8000/api/create/data";
+        const apiEndpoint = "http://localhost:8000/api/create/data-local";
         const options = {
             method: "POST",
             body: formData
@@ -112,39 +112,26 @@
                     const contactPersonPhone = form.querySelector("#contact_person_phone").value;
                     const contactPersonEmail = form.querySelector("#contact_person_email").value;
 
-                    let res = await fetch("http://localhost:8000/api/make/payment", {
-                        method: "POST",
-                        credentials: "same-origin",
-                        headers: {
-                        "Content-Type": "application/json",
-                        },
-                        body: JSON.stringify({contactPersonName, contactPersonPhone, contactPersonEmail}),
-                    });
+                    
 
-                    const data = await res.json();
-                    if (res && res.ok) {
-                        if (res.status === 201) {
-                            // Clear the form
-                            const newFormData = new FormData();
-                            form.querySelectorAll('input, textarea, select').forEach(el => {
-                                if (el.type === 'checkbox') {
-                                    el.checked = false;
-                                } else {
-                                    el.value = '';
-                                }
-                                newFormData.append(el.name, el.value);
-                            });
-                            formData = newFormData;
-
-                            // Display confirmation modal
-                            document.body.append(modalDiv);
-
-                            // Redirect to payment page
-                            document.location.href = data.redirect_url;
+                    const newFormData = new FormData();
+                    form.querySelectorAll('input, textarea, select').forEach(el => {
+                        if (el.type === 'checkbox') {
+                            el.checked = false;
+                        } else {
+                            el.value = '';
                         }
-                    } else {
-                        // TODO: Show error 
-                    }
+                        newFormData.append(el.name, el.value);
+                    });
+                    formData = newFormData;
+
+                    // Display confirmation modal
+                    document.body.append(modalDiv);
+
+                    setTimeout(()=> {
+                        // Redirect to same page
+                        document.location.href = "/register";
+                    }, 2000)
                 } catch (err) {
                     // TODO: Show error 
                     console.error(err);
@@ -156,6 +143,5 @@
 
     });
   </script>
-  <script src="./assets/js/pay.js"></script>
 </body>
 </html>

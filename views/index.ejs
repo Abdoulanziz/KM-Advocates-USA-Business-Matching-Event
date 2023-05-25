@@ -293,5 +293,60 @@
         </div>
     </div>
     <script src="./assets/js/main.js"></script>
+    <script src="./assets/js/pay.js"></script>
+    <script>
+      const form = document.querySelector("form");
+      form.addEventListener("submit", async (event) => {
+          event.preventDefault();
+          let formData = new FormData(form);
+  
+          const apiEndpoint = "http://localhost:8000/api/create/data-foreign";
+          const options = {
+              method: "POST",
+              body: formData
+          };
+  
+          const response = await fetch(apiEndpoint, options);
+            if(response){
+              if(response.status === 201){
+                  const data = await response.json();
+                  const newFormData = new FormData();
+  
+                  form.querySelectorAll('input, textarea, select').forEach(el => {
+                  if (el.type === 'checkbox') {
+                      el.checked = false;
+                  } else {
+                      el.value = '';
+                  }
+                  newFormData.append(el.name, el.value);
+                  });
+  
+                  formData = newFormData;
+  
+                  const modalDiv = document.createElement("div");
+                  const modalTemplate = `
+                  <div class="modal-overlay">
+                      <div class="modal">
+                          <h2>Form Submission</h2>
+                          <img src="./assets/img/check.png" alt="check mark">
+                      </div>
+                  </div>
+                  `;
+                  modalDiv.innerHTML = modalTemplate;
+                  document.body.append(modalDiv);
+  
+                  setTimeout(() => {
+                      modalDiv.innerHTML = "";
+                      document.body.append(modalDiv);
+                      window.location.href = "/";
+                  }, 3000);
+  
+            }else{
+                  
+            }
+          }
+  
+      });
+    </script>
 </body>
 </html>

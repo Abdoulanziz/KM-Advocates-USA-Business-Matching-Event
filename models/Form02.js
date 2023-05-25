@@ -41,9 +41,9 @@ const formSchema = new Schema(
         required: [false, "data share consent"],
     },
   },
-  { timestamps: true }
+  { timestamps: true, collection: "form02s" }
 );
 
-const formModel = mongoose.model("Form", formSchema);
+const formModel = mongoose.model("Form02", formSchema);
 
 module.exports = formModel;
