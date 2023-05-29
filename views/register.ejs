@@ -99,8 +99,25 @@
                 const modalTemplate = `
                 <div class="modal-overlay">
                     <div class="modal">
-                        <h2>Form Submission</h2>
-                        <img src="./assets/img/check.png" alt="check mark">
+                        <div class="title flex">
+                            <h2>Congratulations!</h2>
+                            <img src="./assets/img/check.png" alt="check mark">
+                        </div>
+                        <h4>
+                            Your Company shall pay 2 - 5 % of the total value of investment received
+                            from the foreign investor upon the successful conclusion of the business/
+                            investment relationship between your Company and the foreign Investor Company.
+                        </h4>
+                        <h4>
+                            This fee shall be born by the foreign investor Company hence your Company shall
+                            shall clearly bring the fee to the attention of the foreign investor Company
+                            when negotiating investment relationship/pact between your Company and the foreign
+                            investor Company.
+                        </h4>
+                        <h4>
+                            Your Company is expected to clearly itemise this fee among other items constituting
+                            the investment value.
+                        </h4>
                     </div>
                 </div>
                 `;
@@ -111,8 +128,6 @@
                     const contactPersonName = form.querySelector("#contact_person_name").value;
                     const contactPersonPhone = form.querySelector("#contact_person_phone").value;
                     const contactPersonEmail = form.querySelector("#contact_person_email").value;
-
-                    
 
                     const newFormData = new FormData();
                     form.querySelectorAll('input, textarea, select').forEach(el => {
@@ -128,16 +143,16 @@
                     // Display confirmation modal
                     document.body.append(modalDiv);
 
-                    setTimeout(()=> {
-                        // Redirect to same page
-                        document.location.href = "/register";
-                    }, 2000)
+                    const modalOverlay = document.querySelector(".modal-overlay");
+                    modalOverlay.addEventListener("click", event => {
+                        modalOverlay.style.display = "none";
+                    });
                 } catch (err) {
                     // TODO: Show error 
                     console.error(err);
                 }
             }else{
-                
+                console.log("Some error has occurred!");
             }
         }
 
