@@ -83,7 +83,8 @@
         event.preventDefault();
         let formData = new FormData(form);
 
-        const apiEndpoint = "http://localhost:8000/api/create/data-local";
+        // const apiEndpoint = "http://localhost:8000/api/create/data-local";
+        const apiEndpoint = "http://biz-match:8000/api/create/data-local";
         const options = {
             method: "POST",
             body: formData
