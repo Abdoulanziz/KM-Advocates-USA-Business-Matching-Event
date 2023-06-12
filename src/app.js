@@ -29,7 +29,10 @@ mongoose
   .connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
     const server = app.listen(port, () => {
-      console.log(`Server running on port ${port}`);
+      const host = req.get('host');
+      const serverAddress = `http://${host}`;
+      console.log(`Server running at: ${serverAddress}`);
+      // console.log(`Server running on port ${port}`);
     });
   })
   .catch(() => console.log("Connection failure!"));
